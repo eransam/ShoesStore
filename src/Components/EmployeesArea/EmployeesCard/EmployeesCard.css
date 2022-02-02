@@ -1,0 +1,19 @@
+.EmployeesCard.Box {
+	width: 250px;
+    display: inline-flex;
+    align-items: center;
+    background-image: linear-gradient(45deg, blue, white);
+}
+
+.EmployeesCard img {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    vertical-align: middle;
+}
+
+.EmployeesCard > div:last-child {
+    margin-left: auto;
+}

@@ -1,0 +1,17 @@
+.CoolText {
+    font-size: larger;
+    color: magenta;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px;
+    padding: 0 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow:  5px 5px 10px;
+    text-align: left;
+}
+
+.Smaller {
+    font-size: smaller;
+    color: black;
+}
