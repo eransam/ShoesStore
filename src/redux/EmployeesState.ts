@@ -20,13 +20,13 @@ export interface EmployeesAction {
 }
 
 // Employees Action Creators - function for creating EmployeesAction objects. each function creates one Action object:
-export function fetchEmployeesAction(Employees: EmployeesAction[]): EmployeesAction {
+export function fetchEmployeesAction(Employees: EmployeesModel[]): EmployeesAction {
     return { type: EmployeesActionType.FetchEmployees, payload: Employees };
 }
-export function addEmployeesAction(Employees: EmployeesAction): EmployeesAction {
+export function addEmployeesAction(Employees: EmployeesModel): EmployeesAction {
     return { type: EmployeesActionType.AddEmployees, payload: Employees };
 }
-export function updateEmployeesAction(Employees: EmployeesAction): EmployeesAction {
+export function updateEmployeesAction(Employees: EmployeesModel): EmployeesAction {
     return { type: EmployeesActionType.UpdateEmployees, payload: Employees };
 }
 export function deleteEmployeesAction(id: number): EmployeesAction {

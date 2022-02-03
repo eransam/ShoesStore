@@ -1,30 +1,83 @@
 import axios from "axios";
-import EmployeesModel from "../Models/EmployeesModel";
-//import UserModel from "../Models/UserModel";
-import { loginAction, logoutAction, registerAction } from "../Redux/AuthState";
-import store from "../Redux/Store";
-import config from "../Utils/Config";
+import EmployeedModel from "../Models/EmployeesModel";
+import { fetchEmployeesAction, addEmployeesAction, updateEmployeesAction, deleteEmployeesAction } from "../redux/EmployeesState";
+import store from "../redux/Store";
+import config from "../utils/Config";
 
-class AuthService {
+class EmployeesesService {
 
-    public async register(user: UserModel): Promise<void> {
-        const response = await axios.post<string>(config.registerUrl, user);
-        const token = response.data;
-        store.dispatch(registerAction(token));
+    public async fetchEmployees(): Promise<EmployeedModel[]> {
+        if(store.getState().EmployeesState.Employees.length === 0) {
+            const response = await axios.get<EmployeedModel[]>(config.employeesUrl + "delayed");
+            const AllEmployeed = response.data;
+            store.dispatch(fetchEmployeesAction(AllEmployeed));
+        }
+        return store.getState().EmployeesState.Employees;
     }
 
-    public async login(credentials: CredentialsModel): Promise<void> {
-        const response = await axios.post<string>(config.loginUrl, credentials); // Unique case for post without adding data to database.
-        const token = response.data;
-        store.dispatch(loginAction(token));
+    public async getOneEmployees(id: number): Promise<EmployeedModel> {
+        let Employees = store.getState().EmployeesState.Employees.find(p => p.id === id);
+        if(!Employees) {
+            const response = await axios.get<EmployeedModel>(config.employeesUrl + id);
+            Employees = response.data;
+        }
+        return Employees;
     }
 
-    public logout(): void {
-        store.dispatch(logoutAction());
+    public async deleteOneEmployees(id: number): Promise<void> {
+        await axios.delete(config.employeesUrl + id);
+        store.dispatch(deleteEmployeesAction(id));
     }
 
+    public async addNewEmployees(Employees: EmployeedModel): Promise<EmployeedModel> {
+
+        // Convert out Employees to FormData:
+        const formData = new FormData();
+        formData.append("id", Employees.id.toString());
+        formData.append("firstName", Employees.firstName);
+        formData.append("lastName", Employees.lastName);
+        formData.append("title", Employees.title);
+        formData.append("country", Employees.country);
+        formData.append("city", Employees.city);
+        formData.append("birthDate", Employees.birthDate);
+        formData.append("image", Employees.image.item(0));
+
+
+        // Post the new Employees to the server: 
+        const response = await axios.post<EmployeedModel>(config.employeesUrl, formData);
+        const addedEmployees = response.data;
+
+        // Add to redux global state: 
+        store.dispatch(addEmployeesAction(addedEmployees));
+
+        return addedEmployees;
+    }
+
+    public async updateEmployees(Employees: EmployeedModel): Promise<EmployeedModel> {
+
+        // Convert out Employeed to FormData:
+        const formData = new FormData();
+        formData.append("id", Employees.id.toString());
+        formData.append("firstName", Employees.firstName);
+        formData.append("lastName", Employees.lastName);
+        formData.append("title", Employees.title);
+        formData.append("country", Employees.country);
+        formData.append("city", Employees.city);
+        formData.append("birthDate", Employees.birthDate);
+        formData.append("image", Employees.image.item(0));
+
+        // Put the new Employeed to the server: 
+        const response = await axios.put<EmployeedModel>(config.employeesUrl + Employees.id, formData);
+        const updatedEmployees = response.data;
+
+        // Add to redux global state: 
+        store.dispatch(updateEmployeesAction(updatedEmployees));
+
+        return updatedEmployees;
+    }
+    
 }
 
-const authService = new AuthService();
+const EmployeesService = new EmployeesesService();
 
-export default authService;
+export default EmployeesService;
