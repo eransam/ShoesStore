@@ -11,6 +11,8 @@ import EmployeesList from "../../EmployeesArea/EmployeesList/EmployeesList";
 import EmployeesDetais from "../../EmployeesArea/EmployeesDetails/EmployeesDetails";
 import AddEmployees from "../../EmployeesArea/AddEmployees/AddEmployees";
 import OrderShoes from "../../ProductsArea/OrderShoes/OrderShoes";
+import Register from "../../AuthArea/Register/Register";
+import Login from "../../AuthArea/Login/Login";
 
 
 
@@ -25,6 +27,11 @@ function Routing(): JSX.Element {
         <Route path="/productsshose" element={<ProductsShose />} /> 
         <Route path="/employees/details/:id" element={<EmployeesDetais/>} />
         <Route path="/Orders" element={<OrderShoes/>} />
+
+        
+        <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Login />} />
 
 
 

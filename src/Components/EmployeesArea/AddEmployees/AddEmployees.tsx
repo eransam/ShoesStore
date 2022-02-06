@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 //מחזיר אחורה
 import { useNavigate } from "react-router-dom";
 import EmployeesModel from "../../../Models/EmployeesModel";
+import notify from "../../../service/NotifyService";
 import config from "../../../utils/Config";
 import "./AddEmployees.css";
  
@@ -57,14 +58,17 @@ function AddEmployees(): JSX.Element {
 
             //פה אנו מייבאים את כל המידע למשתנה 
             const addedemployees = response.data;
-            alert("employees has been added!");
+            notify.success("employees has been added!");
+
+            
  
             // Navigate back to all products:
             //מחזיר אחורה אוטומטית
             navigate("/EmployeesList");
         }
         catch(err: any) {
-            alert(err.message);
+            notify.error(err.message);
+
         }
     }
  

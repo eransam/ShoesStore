@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import EmployeesModel from "../../../Models/EmployeesModel";
+import notify from "../../../service/NotifyService";
 import config from "../../../utils/Config";
 import "./EmployeesDetails.css";
  
@@ -34,7 +35,7 @@ function EmployeesDetails(): JSX.Element {
         // setProduct דרך ה Product למשתנה שלנו
         axios.get<EmployeesModel>(config.employeesUrl + id)
             .then(response => setEmployeesDetails(response.data))
-            .catch(err => alert(err.message));
+            .catch(err =>    notify.error(err.message));
  
     }, []);
     
@@ -59,12 +60,13 @@ function EmployeesDetails(): JSX.Element {
             //את האיפיאיי של האובייקט שרוצים למחוק
             //וכך מוחקים את האובייקט
             await axios.delete(config.employeesUrl + id);
-            alert("employees Deleted");
- 
+            notify.success("employees Deleted");
+        
             navigate("/EmployeesList");
         }
         catch(err: any) {
-            alert(err.message);
+            notify.error(err.message);
+
         }
     }
  
