@@ -11,15 +11,22 @@ function Layout(): JSX.Element {
             <header>
                 <Header />
             </header>
+            <div className="layer">
             <aside>
                 <Menu />
             </aside>
+            </div>
+
             <main>
-                <Routing />
+                <div className="background">
+                        <Routing />
+                </div>
             </main>
+            <div className="backgroundFooter">
             <footer>
                 <Footer />
             </footer>
+            </div>
         </div>
     );
 }

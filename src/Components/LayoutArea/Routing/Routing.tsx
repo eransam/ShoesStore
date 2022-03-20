@@ -2,7 +2,7 @@ import "./Routing.css";
 import { Route, Routes } from "react-router";
 import Home from "../../HomeArea/Home/Home"; 
 import PageNotFound from "../../LayoutArea/PageNotFound/PageNotFound"; 
-import ProductList from "../../ProductsArea/ProductList/ProductList"; 
+import ShoesProductList from "../../ProductsArea/ShoesProductList/ShoesProductList"; 
 import About from "../../HomeArea/About/About"; 
 import StorySeccses from "../../HomeArea/StorySeccses/StorySeccses"; 
 import { Navigate } from "react-router-dom";
@@ -13,6 +13,9 @@ import AddEmployees from "../../EmployeesArea/AddEmployees/AddEmployees";
 import OrderShoes from "../../ProductsArea/OrderShoes/OrderShoes";
 import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
+import NorthwindProducts from "../../NorthwindProductsArea/ProductList/ProductList";
+import Chat from "../../SocketArea/Chat/Chat";
+
 
 
 
@@ -21,14 +24,16 @@ function Routing(): JSX.Element {
     return (
     <Routes>
         <Route path="/home" element={<Home />} /> 
-        <Route path="/ProductList" element={<ProductList />} /> 
+        <Route path="/ProductList" element={<ShoesProductList />} /> 
         <Route path="/about" element={<About />} /> 
         <Route path="/storyseccses" element={<StorySeccses />} /> 
         <Route path="/productsshose" element={<ProductsShose />} /> 
         <Route path="/employees/details/:id" element={<EmployeesDetais/>} />
         <Route path="/Orders" element={<OrderShoes/>} />
+        <Route path="/NorthwindProducts" element={<NorthwindProducts />} />
+        <Route path="/Orders" element={<OrderShoes/>} />
+        <Route path="/Chat" element={<Chat/>} />
 
-        
         <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Login />} />

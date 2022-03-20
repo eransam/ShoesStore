@@ -43,11 +43,12 @@ function AddEmployees(): JSX.Element {
             const formData = new FormData();
             formData.append("firstName", Employees.firstName);
             formData.append("lastName", Employees.lastName);
-            formData.append("title", Employees.title);
-            formData.append("country", Employees.country);
-            formData.append("city", Employees.city);
             formData.append("birthDate", Employees.birthDate);
-            formData.append("image", Employees.image.item(0));
+            formData.append("city", Employees.city);
+            //formData.append("birthDate", Employees.birthDate);
+            //formData.append("image", Employees.image.item(0));
+
+
 
 
  
@@ -124,22 +125,14 @@ register
 
 
 {/* כנ''ל*/}
- <label>title: </label>
- <input type="text" {...register("title", {
+ <label>birthDate: </label>
+ <input type="text" {...register("birthDate", {
                     required: { value: true, message: "Missing title" },
                     min: { value: 5, message: "must be minimom 2 letters" },
                     max: { value: 20, message: "must be max 30 letters" },
  })} />
-                 <span>{formState.errors.title?.message}</span>
+                 <span>{formState.errors.birthDate?.message}</span>
 
-{/* כנ''ל*/}
-<label>country: </label>
- <input type="text" {...register("country", {
-                    required: { value: true, message: "Missing country" },
-                    min: { value: 3, message: "must be minimom 2 letters" },
-                    max: { value: 30, message: "must be max 30 letters" },
- })} />
-                 <span>{formState.errors.country?.message}</span>
 
                  {/* כנ''ל*/}
  <label>city: </label>
@@ -149,20 +142,6 @@ register
                     max: { value: 30, message: "must be max 30 letters" },
  })} />
                  <span>{formState.errors.city?.message}</span>
-
-                 {/* כנ''ל*/}
- <label>birthDate: </label>
- <input type="text" {...register("birthDate", {
-                    required: { value: true, message: "Missing birthDate" },
- })} />
-                 <span>{formState.errors.birthDate?.message}</span>
-
-
-<label>Image: </label>
-<input type="file" accept="image/*" {...register("image", {
-                    required: { value: true, message: "Missing birthDate" },
- })} />
-                 <span>{formState.errors.image?.message}</span>
 
 
 {/* ברירת המחדל של כפתורים זה 

@@ -1,4 +1,5 @@
 .Layout {
+    position: relative;
     min-height: 100%;
     box-sizing: border-box;
     display: grid;
@@ -16,4 +17,23 @@ header, footer {
 
 main {
     grid-column: span 5;
+}
+
+.background {
+    background-image: url("../../../Assets/Images/pat-kwon-EJTjetc8tPs-unsplash.jpg");
+    position: relative;
+}
+
+.blueBackground {
+    background-image: url("../../../Assets/Images/blue-backgroung.jpg");
+    position: relative;
+}
+
+.layer {
+    background-color: #3d322d;
+
+}
+
+.backgroundFooter{
+    background-color:black;
 }

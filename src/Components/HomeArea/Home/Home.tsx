@@ -3,6 +3,10 @@ import Sales from "../Sales/Sales";
 import List from "../List/List";
 import ShoseCard from "../ShoseCard/ShoseCard";
 import ShowRandomBrand from "../ShowRandomBrand/ShowRandomBrand";
+import ParallaxImageMain from "../../HomeArea/paralaxScroll/paralaxScroll";
+
+
+
 
 import "./Home.css";
 import RandomColor from "../RandomColor/RandomColor";
@@ -12,6 +16,7 @@ function Home(): JSX.Element {
         <div className="Home">
 
             {/* Conditional Rendering */}
+            <ParallaxImageMain />
             <Sales />
             <YoutubeVideo />
             <List />

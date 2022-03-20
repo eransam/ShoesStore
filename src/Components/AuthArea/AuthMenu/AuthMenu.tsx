@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import UserModel from "../../../Models/UserModel";
@@ -28,17 +29,22 @@ function AuthMenu(): JSX.Element {
         <div className="AuthMenu">
             {user === null ?
                 <>
-                    <span>Hello Guest</span>
-                    <span> | </span>
-                    <NavLink to="/login">Login</NavLink>
-                    <span> | </span>
-                    <NavLink to="/register">Register</NavLink>
+                
+                
+                <div className="backgroundColorTorkey"><span>Hello Guest</span></div>
+                <div className="backgroundColorTorkey"><NavLink to="/login">Login</NavLink></div>
+                <div className="backgroundColorTorkey"><NavLink to="/register">Register</NavLink></div>
+                    
+                
                 </>
                 :
                 <>
+                
+                <div className="backgroundColorTorkey">
                     <span>Hello {user.firstName} {user.lastName}</span>
-                    <span> | </span>
-                    <NavLink to="/logout">Logout</NavLink>
+                   <NavLink to="/logout">Logout</NavLink>
+                    </div>
+                
                 </>
             }
         </div>

@@ -20,19 +20,15 @@ function EmployeesCard(props: EmployeesCardProps): JSX.Element {
                 <br />
                 LastNme: {props.Employeesone.lastName}
                 <br />
-                title: {props.Employeesone.title}
-                <br />
-                country: {props.Employeesone.country}
+                title: {props.Employeesone.birthDate}
                 <br />
                 city: {props.Employeesone.city}
                 <br />
-                birthDate: {props.Employeesone.birthDate}
-                <br />
-                Id: {props.Employeesone.id}
+                employeesID: {props.Employeesone.employeesID}
                 </div>
 <div>
-<NavLink to={"/employees/details/" + props.Employeesone.id}>
-<img src={config.employeesImageUrl + props.Employeesone.imageName} />
+<NavLink to={"/employees/details/" + props.Employeesone.employeesID}>
+  <p>עובדים</p>  
 </NavLink>
 
 </div>

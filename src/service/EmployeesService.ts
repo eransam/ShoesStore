@@ -16,7 +16,7 @@ class EmployeesesService {
     }
 
     public async getOneEmployees(id: number): Promise<EmployeedModel> {
-        let Employees = store.getState().EmployeesState.Employees.find(p => p.id === id);
+        let Employees = store.getState().EmployeesState.Employees.find(p => p.employeesID === id);
         if(!Employees) {
             const response = await axios.get<EmployeedModel>(config.employeesUrl + id);
             Employees = response.data;
@@ -33,14 +33,11 @@ class EmployeesesService {
 
         // Convert out Employees to FormData:
         const formData = new FormData();
-        formData.append("id", Employees.id.toString());
+        formData.append("employeesID", Employees.employeesID.toString());
         formData.append("firstName", Employees.firstName);
         formData.append("lastName", Employees.lastName);
-        formData.append("title", Employees.title);
-        formData.append("country", Employees.country);
         formData.append("city", Employees.city);
         formData.append("birthDate", Employees.birthDate);
-        formData.append("image", Employees.image.item(0));
 
 
         // Post the new Employees to the server: 
@@ -57,17 +54,14 @@ class EmployeesesService {
 
         // Convert out Employeed to FormData:
         const formData = new FormData();
-        formData.append("id", Employees.id.toString());
+        formData.append("employeesID", Employees.employeesID.toString());
         formData.append("firstName", Employees.firstName);
         formData.append("lastName", Employees.lastName);
-        formData.append("title", Employees.title);
-        formData.append("country", Employees.country);
         formData.append("city", Employees.city);
         formData.append("birthDate", Employees.birthDate);
-        formData.append("image", Employees.image.item(0));
 
         // Put the new Employeed to the server: 
-        const response = await axios.put<EmployeedModel>(config.employeesUrl + Employees.id, formData);
+        const response = await axios.put<EmployeedModel>(config.employeesUrl + Employees.employeesID, formData);
         const updatedEmployees = response.data;
 
         // Add to redux global state: 

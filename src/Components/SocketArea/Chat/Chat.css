@@ -1,0 +1,21 @@
+.Chat > .Messages {
+	border: 1px solid black;
+    height: 300px;
+    overflow: auto;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+.Chat{
+    background-color: #25d366;
+
+}
+
+
+.Messages {
+    background-color: #d9fdd3;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+     }

@@ -1,0 +1,16 @@
+.lmage1{
+position: relative;
+height: 100vh;
+}
+
+
+.content{
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+img-txt{
+    display: flex;
+    justify-content: top;
+}

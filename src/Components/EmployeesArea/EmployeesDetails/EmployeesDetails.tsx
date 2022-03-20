@@ -83,9 +83,7 @@ function EmployeesDetails(): JSX.Element {
                 <>
                     <h3>firstName: {EmployeesDetails.firstName}</h3>
                     <h3>lastName: {EmployeesDetails.lastName}</h3>
-                    <h3>id: {EmployeesDetails.id}</h3>
-                    <img src={config.employeesImageUrl + EmployeesDetails.imageName} />
- 
+                    <h3>id: {EmployeesDetails.employeesID}</h3> 
                     <br />
                     {/* לינק לחזרה אחורה */}
                     {/* Navigate Back: */}

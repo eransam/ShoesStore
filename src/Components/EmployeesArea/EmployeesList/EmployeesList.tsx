@@ -42,7 +42,7 @@ function EmployeesList(): JSX.Element {
             פרטי key */}
 
             {/*הוא האובייקט ProductCard הפרמטר של קומפוננטת  */}
-            {Employees.map(p => <EmployeesCard key={p.id} Employeesone={p} />)}
+            {Employees.map(p => <EmployeesCard key={p.employeesID} Employeesone={p} />)}
 
         </div>
     );

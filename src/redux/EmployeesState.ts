@@ -50,14 +50,14 @@ export function EmployeesReducer(currentState = new EmployeesState(), action: Em
             break;
 
         case EmployeesActionType.UpdateEmployees:
-            const indexToUpdate = newState.Employees.findIndex(p => p.id === action.payload.id); // Here the payload is a single object to update.
+            const indexToUpdate = newState.Employees.findIndex(p => p.employeesID === action.payload.id); // Here the payload is a single object to update.
             if (indexToUpdate >= 0) {
                 newState.Employees[indexToUpdate] = action.payload;
             }
             break;
             
         case EmployeesActionType.DeleteEmployees:
-            const indexToDelete = newState.Employees.findIndex(p => p.id === action.payload); // Here the payload is the id to delete.
+            const indexToDelete = newState.Employees.findIndex(p => p.employeesID === action.payload); // Here the payload is the id to delete.
             if (indexToDelete >= 0) {
                 newState.Employees.splice(indexToDelete, 1);
             }

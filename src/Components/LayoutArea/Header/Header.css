@@ -1,6 +1,17 @@
 .Header {
+    width: 100%;
     height: 100%;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background-color:  #3c312c;
+}
+.automenu{
+    position: relative;
+    top: 20px;
+    right: 10px;
+    width: 80%;
+}
+
+.thelogo{
+    width: 50%;
 }

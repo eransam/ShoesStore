@@ -7,10 +7,14 @@ function Header(): JSX.Element {
     return (
         <div className="Header">
             
-            <AuthMenu />
-
+            <div className="thelogo">
             <Logo />
-            <h1>erans nike painting</h1>
+            </div>
+            <div className="automenu">
+            <AuthMenu />
+            </div>
+
+
         </div>
     );
 }

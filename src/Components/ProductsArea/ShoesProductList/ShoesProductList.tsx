@@ -5,9 +5,9 @@ import  {useEffect} from "react";
 //import ProductModel from "../../../Models/ProductModel";
 //import config from "../../../Utils/Config";
 //import ProductCard from "../ProductCard/ProductCard";
-import "./ProductList.css";
+import "./ShoesProductList.css";
 
-function ProductList(): JSX.Element {
+function ShoesProductList(): JSX.Element {
 
     // Create products state: 
    // const [products, setProducts] = useState<ProductModel[]>([]);
@@ -42,4 +42,4 @@ function ProductList(): JSX.Element {
    );
 }
 
-export default ProductList;
+export default ShoesProductList;
